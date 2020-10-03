@@ -14,7 +14,7 @@
 
     function playerPlay() {
       let getChoice;
-      while ((getChoice != 'rock') && (getChoice != 'paper')) {
+      while ((getChoice != 'rock') && (getChoice != 'paper') && (getChoice != 'scissors')) {
         getChoice = prompt('Rock, paper, or scissors?');
       }
       return getChoice;
@@ -24,32 +24,48 @@
       console.log(playerSelection);
       console.log(computerSelection);
       if (computerSelection == 'rock' && playerSelection == 'rock') {
-        return console.log('Tie game!');
+        return console.log('Tie round!');
       } else if (computerSelection == 'paper' && playerSelection == 'rock') {
-        return console.log('Computer wins!');
+        computerScore++;
+        return console.log('Computer wins this round!');
       } else if (computerSelection == 'scissors' && playerSelection == 'rock') {
-        return console.log('Player wins!');
+        playerScore++;
+        return console.log('Player wins this round!');
       } else if (computerSelection == 'paper' && playerSelection == 'paper') {
-        return console.log('Tie game!');
+        return console.log('Tie round!');
       } else if (computerSelection == 'rock' && playerSelection == 'paper') {
-        return console.log('Player wins!');
+        playerScore++;
+        return console.log('Player wins this round!');
       } else if (computerSelection == 'scissors' && playerSelection == 'paper') {
-        return console.log('Computer wins!');
+        computerScore++;
+        return console.log('Computer wins this round!');
       } else if (computerSelection == 'paper' && playerSelection == 'scissors') {
-        return console.log('Player game!');
+        playerScore++;
+        return console.log('Player wins this round!');
       } else if (computerSelection == 'rock' && playerSelection == 'scissors') {
-        return console.log('Computer wins!');
+        computerScore++;
+        return console.log('Computer wins this round!');
       } else if (computerSelection == 'scissors' && playerSelection == 'scissors') {
-        return console.log('Tie game!');
+        return console.log('Tie round!');
       }
     }
 
     function game() {
       let i;
-      for (i = 0; i < 1; i++) {
+      for (i = 0; i < 5; i++) {
         playRound(playerPlay(), computerPlay());
       }
+      if (playerScore > computerScore) {
+        return alert('Player wins!')
+      } else if (playerScore < computerScore) {
+        return alert('Computer wins!')
+      } else {
+        return alert('Tie game!')
+      }
     }
+
+    let playerScore = 0;
+    let computerScore = 0;
 
     console.log(game())
 
