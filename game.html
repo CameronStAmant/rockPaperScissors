@@ -6,11 +6,31 @@
 </head>
 <body>
   <script>
-    function computerPlay () {
+    function computerPlay() {
       let options = ['Rock', 'Paper', 'Scissors'];
-      let getOption = options[Math.floor(Math.random() * options.length)];
+      let getOption = options[Math.floor(Math.random() * options.length)].toLowerCase();
       return getOption;
     }
+
+    function playRound(playerSelection, computerSelection) {
+      console.log(playerSelection);
+      console.log(computerSelection);
+      if (computerSelection == 'rock' && playerSelection == 'rock') {
+        return console.log('Tie game!');
+      } else if (computerSelection == 'paper' && playerSelection == 'rock') {
+        return console.log('Computer wins!');
+      } else if (computerSelection == 'scissors' && playerSelection == 'rock') {
+        return console.log('Player wins!');
+      } else if (computerSelection == 'paper' && playerSelection == 'rock') {
+        return console.log('Computer wins!');
+      } else if (computerSelection == 'scissors' && playerSelection == 'rock') {
+        return console.log('Player wins!');
+      }
+    }
+
+    const playerSelection = 'rock';
+    const computerSelection = computerPlay();
+    console.log(playRound(playerSelection, computerSelection));
   </script>
 </body>
 </html>
