@@ -14,7 +14,7 @@
 
     function playerPlay() {
       let getChoice;
-      while (getChoice != 'rock' || getChoice != 'paper' || getChoice != 'scissors') {
+      while ((getChoice != 'rock') && (getChoice != 'paper')) {
         getChoice = prompt('Rock, paper, or scissors?');
       }
       return getChoice;
