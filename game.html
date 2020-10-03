@@ -12,6 +12,14 @@
       return getOption;
     }
 
+    function playerPlay() {
+      let getChoice;
+      while (getChoice != 'rock' || getChoice != 'paper' || getChoice != 'scissors') {
+        getChoice = prompt('Rock, paper, or scissors?');
+      }
+      return getChoice;
+    }
+
     function playRound(playerSelection, computerSelection) {
       console.log(playerSelection);
       console.log(computerSelection);
@@ -21,16 +29,33 @@
         return console.log('Computer wins!');
       } else if (computerSelection == 'scissors' && playerSelection == 'rock') {
         return console.log('Player wins!');
-      } else if (computerSelection == 'paper' && playerSelection == 'rock') {
-        return console.log('Computer wins!');
-      } else if (computerSelection == 'scissors' && playerSelection == 'rock') {
+      } else if (computerSelection == 'paper' && playerSelection == 'paper') {
+        return console.log('Tie game!');
+      } else if (computerSelection == 'rock' && playerSelection == 'paper') {
         return console.log('Player wins!');
+      } else if (computerSelection == 'scissors' && playerSelection == 'paper') {
+        return console.log('Computer wins!');
+      } else if (computerSelection == 'paper' && playerSelection == 'scissors') {
+        return console.log('Player game!');
+      } else if (computerSelection == 'rock' && playerSelection == 'scissors') {
+        return console.log('Computer wins!');
+      } else if (computerSelection == 'scissors' && playerSelection == 'scissors') {
+        return console.log('Tie game!');
       }
     }
 
-    const playerSelection = 'rock';
-    const computerSelection = computerPlay();
-    console.log(playRound(playerSelection, computerSelection));
+    function game() {
+      let i;
+      for (i = 0; i < 1; i++) {
+        playRound(playerPlay(), computerPlay());
+      }
+    }
+
+    console.log(game())
+
+    // const playerSelection = 'rock';
+    // const computerSelection = computerPlay();
+    // console.log(playRound(playerSelection, computerSelection));
   </script>
 </body>
 </html>
